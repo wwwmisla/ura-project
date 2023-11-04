@@ -8,12 +8,12 @@
 
 ## Índice
  
- - [Título e Imagem de capa](#UmRobôPorAluno-URA)
- - [Descrição do projeto](#Descrição-do-projeto)
- - [Componentes Utilizados](#Componentes-Utilizados)
- - [Tecnologias Utilizadas](#Tecnologias-Utilizadas)
- - [Como Fazer](#Como-Fazer)
- - [Referências](#Referências)
+ - [Título e Imagem de capa](#t%C3%ADtulo-projeto---ura)
+ - [Descrição do projeto](#-descrição-do-projeto)
+ - [Componentes Utilizados](#-componentes-utilizados)
+ - [Tecnologias Utilizadas](#%EF%B8%8F-tecnologias-utilizadas)
+ - [Como Fazer](#-como-fazer)
+ - [Referências](#-referências)
 </div>
 
 ## 📄 Descrição do Projeto
