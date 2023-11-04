@@ -4,7 +4,7 @@
 
 #### Projeto: Título Projeto do URA - Um Robô por Aluno
 
-<img src="https://github.com/wwwmisla/ura-project/assets/86123289/d6dcd18d-be73-4cba-a66a-e85cdefb92ee" width="400px" align="right" />
+<img src="https://github.com/wwwmisla/ura-project/blob/main/ura_logo.png" width="400px" align="right" />
 
 ## Índice
  
