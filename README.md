@@ -13,6 +13,10 @@
  - [Componentes Utilizados](#-componentes-utilizados)
  - [Tecnologias Utilizadas](#%EF%B8%8F-tecnologias-utilizadas)
  - [Como Fazer](#-como-fazer)
+   - [Circuito](#%EF%B8%8F-explica%C3%A7%C3%A3o-circuito---hardware)
+   - [Código](#-explica%C3%A7%C3%A3o-c%C3%B3digo---software)
+ - [Como Jogar](#-como-jogar)
+ - [Documentação do Projeto](#%EF%B8%8F-documenta%C3%A7%C3%A3o-do-projeto)
  - [Referências](#-referências)
 </div>
 
@@ -36,7 +40,6 @@
 | 1     | Protoboard |
 | X     | Jumpers (Macho/Macho) |
 
-
 ## 🛠️ Tecnologias Utilizadas
 
 <div align="center">
@@ -49,6 +52,13 @@
 
 ## 📝 Como Fazer
 <!-- Colocar slide da apresentação, o códido estará disponível e um pequeno manual de instruções -->
+### 🖥️ Explicação Circuito - Hardware
+
+### 👩‍💻 Explicação Código - Software
+
+## 🎮 Como Jogar
+
+## 🗂️ Documentação do Projeto
 
 ## 🧾 Referências
 
