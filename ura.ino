@@ -2,20 +2,22 @@
 *
 *                 URA - Turma Graduandos 2023 
 *                 
-*  Nome do Projeto: Genius Plus 
+*  Nome do Projeto: BatMusic/BatMa^2m/Batnius
 *  Criado por: Artur, Anne e Misla
 *  Jogo é composto inicialente por 6 botões com 6 LEDs coloridos. 
-*  Jogador deve fazer a mesma sequência de sons proposta pelo Jogo.
+*  Jogador/Criança deve fazer a mesma sequência de sons proposta pelo Jogo.
 *  O Jogo tem o intuito de melhorar o Ouvido Absoluto (OA) do Jogador.
 *
 *  Componentes:
-*     - Arduino Uno R3;
-*     - 6 botões;
-*     - 6 LEDs coloridos;
+*     - Arduíno Uno R3;
+*     - 6 Chaves Momentâneas (Push Button);
+*     - 6 LEDs de Cores Diferentes;
 *     - 7 Resistores de 220 Ohms (ou valor adequado para o LED selecionado);
-*     - 1 Buzzer        
+*	    - 1 Buzzer;
+*     - 1 Protoboard;
+*	    - X Jumpers (Macho/Macho).
 *     
-*   Versão 1.0 - Versão inicial com Jogo de 17 posições e alguns efeitos pré e pós jogo - XX/Nov/2023
+*   Versão 1.0 - Versão inicial com Jogo de 20 posições, além de conter alguns efeitos pré e pós jogo - XX/XX/2023
 *   
 *   Disponível em:
 *   
@@ -30,6 +32,7 @@
 #define NOTE_LA 440
 #define NOTE_SI 493
 
+// Música iniciar, perder e ganhar
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35
@@ -157,22 +160,23 @@ int tuneSize = sizeof(melody4) / sizeof(int);
 
 // Definição de Pinos
 int pino_Buzzer     = 6;          // Pino Buzzer
+
 int pino_LedBR      = 7;          // Led Branco
 int pino_LedAM      = 8;          // Led Amarelo
 int pino_LedLA      = 9;          // Led Laranja
 int pino_LedAZ      = 10;         // Led Azul
 int pino_LedVD      = 11;         // Led Verde
 int pino_LedVM      = 12;         // Led Vermelho
+
 int pino_BotaoDo    = 0;          // Botão Dó
 int pino_BotaoRe    = 1;          // Botão Ré
 int pino_BotaoMi    = 2;          // Botão Mi
 int pino_BotaoFa    = 3;          // Botão Fá
 int pino_BotaoSol   = 4;          // Botão Sol
 int pino_BotaoLa    = 5;          // Botão Lá
-//int pino_BotaoSi  = #;          // Botão Si
 
 // Constantes
-const int tamMemoria = 17;        // Número máximo de combinações ou fases de jogo
+const int tamMemoria = 20;        // Número máximo de combinações ou fases de jogo
 const int tempoCor   = 1000;      // Tempo de cada cor, 1000 millisegundos
 
 // Variáveis de programa 
@@ -189,13 +193,13 @@ int lastTime         = 0;
 int demoLed          = 0;         // Indicador de modo demonstração pré-jogo
 
 int statusJogo       = 0;         // 0 = modo demonstração ; 1 = modo Jogo
-int memJogo[tamMemoria];          // Array com sequencia de cores para jogar responder
+int memJogo[tamMemoria];          // Array com sequência de cores para jogar responder
 int etapaJogo;                    // 0 = introdução; 1 = jogo; 2 = perdeu; 3 = ganhou
 int faseJogo         = 1;         // Evolução do jogador, vai até o valor de tamMemoria
 int respJogador      = 0;         // Guarda resposta do jogador
 int botaoPress       = 0;         // Variável para guardar botão pressionado pelo jogador
 int perdeuJogo       = 0;         // Indicador para perdeu o jogo
-int tempoJogador     = 15000;     // Tempo da vez do jogador, para cada cor
+int tempoJogador     = 30000;     // Tempo da vez do jogador, para cada cor
 
 // SETUP
 void setup()
@@ -219,7 +223,6 @@ void setup()
   pinMode(pino_BotaoFa, INPUT_PULLUP);    // Botão da nota Fa
   pinMode(pino_BotaoSol, INPUT_PULLUP);   // Botão da nota Sol
   pinMode(pino_BotaoLa, INPUT_PULLUP);    // Botão da nota La
-  //pinMode(pino_BotaoSi, INPUT_PULLUP);    // Botão da nota Si
 
   // Registro de tempo e inicializa randomização
   lastTime = millis();
@@ -258,39 +261,51 @@ void modoDemo() {
     case 1:
       apagaLeds();
       digitalWrite(pino_LedBR, HIGH);
+      somBR();
       break;
     case 2:
       digitalWrite(pino_LedAM, HIGH);
+      somAM();
       break;
     case 3:
       digitalWrite(pino_LedLA, HIGH);
+      somLA();
       break;
     case 4:
       digitalWrite(pino_LedAZ, HIGH);
+      somAZ();
       break;
     case 5:
       digitalWrite(pino_LedVD, HIGH);
+      somVD();
       break;
     case 6:
       digitalWrite(pino_LedVM, HIGH);
+      somVM();
       break;
     case 7:
       digitalWrite(pino_LedBR, LOW);
+      somBR();
       break;
     case 8:
       digitalWrite(pino_LedAM, LOW);
+      somAM();
       break;
     case 9:
       digitalWrite(pino_LedLA, LOW);
+      somLA();
       break;
     case 10:
       digitalWrite(pino_LedAZ, LOW);
+      somAZ();
       break;
     case 11:
       digitalWrite(pino_LedVD, LOW);
+      somVD();
       break;
     case 12:
       digitalWrite(pino_LedVM, LOW);
+      somVM();
       break;    
     case 13:
       apagaLeds();
@@ -320,7 +335,7 @@ void modoJogo() {
 
 // Função de efeitos de início do jogo e carregamento da memória
 void inicioJogo() {
-  Serial.println("Iniciando Jogo...");
+  Serial.println("\nIniciando Jogo...");
   somInicio();
   for (int i = 0; i < 10; i++) {
     digitalWrite(pino_LedBR, LOW);
@@ -368,9 +383,30 @@ void inicioJogo() {
   digitalWrite(pino_LedVM, HIGH);
   delay(1000);
 
-  // sorteia memoria
+  // Sorteia memoria
   for (int i = 0; i < tamMemoria ; i++) {
-    memJogo[i] = random(1, 7);              // randomiza cores: 1 = Verm; 2 = Amar; 3 = Verd; 4 = Azul; 5 = Bran; 6 = Laran
+  //Se o valor for igual a 1, então emita a nota dó e acenda seu respectivo Led
+    if (i == 0) {
+      memJogo[i] = 1; // Emite Nota Dó e acende o Led respectivo a Nota
+    } 
+    else if(i == 1){
+      memJogo[i] = 2; // Emite Nota Ré e acende o Led respectivo a Nota
+    } 
+    else if(i == 2){
+      memJogo[i] = 3; // Emite Nota Mi e acende o Led respectivo a Nota
+    } 
+    else if(i == 3){
+      memJogo[i] = 4; // Emite Nota Fa e acende o Led respectivo a Nota
+    } 
+    else if(i == 4){
+      memJogo[i] = 5; // Emite Nota Sol e acende o Led respectivo a Nota
+    }
+    else if(i == 5){
+      memJogo[i] = 6; // Emite Nota La e acende o Led respectivo a Nota
+    }
+    else {
+      memJogo[i] = random(1, 7); // Randomiza cores: 1 = Bran; 2 = Amar; 3 = Lar; 4 = Azul; 5 = Ver; 6 = Verd
+    }
   }
 
   // Zera variáveis
@@ -384,7 +420,7 @@ void inicioJogo() {
 // Função de Jogo para turno do Arduino, acender os Leds conforme memória e fase atual
 void turnoArduino() {
   Serial.print("Turno Arduino, Fase: ");
-  Serial.println(faseJogo);       // variável faseJogo é o quanto o Jogador vai avançando, Arduino exibe até onde Jogador está
+  Serial.println(faseJogo);       // Variável faseJogo é o quanto o Jogador vai avançando, Arduino exibe até onde Jogador está
 
   for (int i = 0; i < faseJogo ; i++) {
     switch (memJogo[i]) {
@@ -427,11 +463,11 @@ void turnoJogador() {
   for (int i = 0 ; i < faseJogo ; i++) {
     botaoPress = leituraBotoesJogo(i);    // Checa botão pressionado pelo jogador
     if (botaoPress == 1) {    // Pressionou corretamente
-      Serial.println("Resposta certa");
+      Serial.println("Resposta certa!");
       terminoTurno = 1;
       delay (100);
     } else {                  // Errou
-      Serial.println("Resposta errada, Perdeu o jogo!");
+      Serial.println("Resposta errada, perdeu o jogo!");
       perdeuJogo == 1;
       statusJogo = 0;
       etapaJogo = 0;
@@ -441,9 +477,10 @@ void turnoJogador() {
   }
   delay(500);
   faseJogo++;             // Incrementa fase
-  /*if (faseJogo == memJogo) {
+  if (faseJogo == tamMemoria) { //memJogo
     ganhouJogo();     // ganhou jogo e faz efeito do ganhador
-  }*/
+    Serial.println("Ganhou o jogo, parabéns!");
+  }
 }
 
 // Função para ler botões no modo demonstação, com lógica para sair do modo se pressionou botão
@@ -582,23 +619,23 @@ void apagaLeds() {
 
 // Funções de Sons
 void somBR() {
-  tone(pino_Buzzer, NOTE_DO, 100);
+  tone(pino_Buzzer, NOTE_DO, 500);
 }
 
 void somAM() {
-  tone(pino_Buzzer, NOTE_RE, 100);
+  tone(pino_Buzzer, NOTE_RE, 500);
 }
 
 void somLA() {
-  tone(pino_Buzzer, NOTE_MI, 100);
+  tone(pino_Buzzer, NOTE_MI, 500);
 }
 
 void somAZ() {
-  tone(pino_Buzzer, NOTE_FA, 100);
+  tone(pino_Buzzer, NOTE_FA, 500);
 }
 
 void somVD() {
-  tone(pino_Buzzer, NOTE_SOL, 100);
+  tone(pino_Buzzer, NOTE_SOL, 500);
 }
 
 void somVM() {
