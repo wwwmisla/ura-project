@@ -405,7 +405,7 @@ void inicioJogo() {
       memJogo[i] = 6; // Emite Nota La e acende o Led respectivo a Nota
     }
     else {
-      memJogo[i] = random(1, 7); // Randomiza cores: 1 = Bran; 2 = Amar; 3 = Lar; 4 = Azul; 5 = Ver; 6 = Verd
+      memJogo[i] = random(1, 7); // Randomiza Notas e cores dos Leds: 1 = Bran; 2 = Amar; 3 = Lar; 4 = Azul; 5 = Ver; 6 = Verd
     }
   }
 
