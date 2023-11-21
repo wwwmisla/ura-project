@@ -1,8 +1,8 @@
 /*******************************************************************************
 *
-*                 URA - Turma Graduandos 2023 
+*                 URA - Turma Graduandos 2023.2 
 *                 
-*  Nome do Projeto: BatMusic/BatMa^2m/Batnius
+*  Nome do Projeto: Batma²m
 *  Criado por: Artur, Anne e Misla
 *  Jogo é composto inicialente por 6 botões com 6 LEDs coloridos. 
 *  Jogador/Criança deve fazer a mesma sequência de sons proposta pelo Jogo.
@@ -13,13 +13,15 @@
 *     - 6 Chaves Momentâneas (Push Button);
 *     - 6 LEDs de Cores Diferentes;
 *     - 7 Resistores de 220 Ohms (ou valor adequado para o LED selecionado);
-*	    - 1 Buzzer;
+*	  - 1 Buzzer;
 *     - 1 Protoboard;
-*	    - X Jumpers (Macho/Macho).
+*	  - 16 Jumpers (Macho/Macho).
 *     
 *   Versão 1.0 - Versão inicial com Jogo de 20 posições, além de conter alguns efeitos pré e pós jogo - XX/XX/2023
 *   
 *   Disponível em:
+*	Faltando: Aumentar o tempo para pressionar o botão, apagar Leds quando estiver na sequência
+*	aleatória e ver se é possível ganhar no jogo.
 *   
 *******************************************************************************/
 
