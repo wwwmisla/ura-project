@@ -4,7 +4,7 @@
 
 #### Projeto: Batma²m do URA - Um Robô por Aluno
 
-<img src="https://github.com/wwwmisla/ura-project/blob/main/ura_logo.png" width="400px" align="right" />
+<img src="https://github.com/wwwmisla/ura-project/blob/main/img/ura_logo.png" width="400px" align="right" />
 
 ## Índice
  
