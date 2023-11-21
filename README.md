@@ -1,14 +1,14 @@
-# Título Projeto - URA 
+# Batma²m - URA 
 
 <div style="display: inline_block">
 
-#### Projeto: Título Projeto do URA - Um Robô por Aluno
+#### Projeto: Batma²m do URA - Um Robô por Aluno
 
 <img src="https://github.com/wwwmisla/ura-project/blob/main/ura_logo.png" width="400px" align="right" />
 
 ## Índice
  
- - [Título e Imagem de capa](#t%C3%ADtulo-projeto---ura)
+ - [Título e Imagem de capa](#batmam---ura)
  - [Descrição do projeto](#-descrição-do-projeto)
  - [Componentes Utilizados](#-componentes-utilizados)
  - [Tecnologias Utilizadas](#%EF%B8%8F-tecnologias-utilizadas)
@@ -38,7 +38,7 @@
 | 7     | Resistores de 220 Ohms (ou valor adequado para o LED selecionado) |
 | 1     | Buzzer |
 | 1     | Protoboard |
-| X     | Jumpers (Macho/Macho) |
+| 16     | Jumpers (Macho/Macho) |
 
 ## 🛠️ Tecnologias Utilizadas
 
