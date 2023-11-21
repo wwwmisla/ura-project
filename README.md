@@ -62,7 +62,22 @@
    - Começamos definindo valores constantes para as notas musicais dos sons e das melodias.
 
 2. Definição de Variáveis:
-   <!-- Explicar -->
+   - Variáveis são definidas para manipular:
+      - As melodias;
+      - Os pinos para o Buzzer, os Leds e os Botões;
+      - O status dos Botões;
+      - Temporizadores;
+      - Indicador do Modo Demonstração;
+      - O status do Jogo;
+      - A sequência de cores que o jogador deve responder;
+      - As etapas e fases do Jogo;
+      - As respostas do Jogador (serve para guardar o valor);
+      - Variável para guardar o Botão pressionado pelo jogador;
+      - Indicador quando perder o jogo;
+      - Tempo para resposta do jogador;
+    - Constante são definidas para manipular:
+      - O número máximo de combinações ou fases de jogo;
+      - O tempo de cada cor (millisegundos). 
 
 3. Função de Configuração (setup):
    - Inicializa a comunicação serial a 9600 bps;
@@ -77,52 +92,61 @@
      - O while do Modo Jogo: chama a função "modoJogo" quando  a variável "statusJogo" é igual a 1.
 
 6. Função "modoDemo":
-   - Essa função consiste em um efeito dos Leds apenas.
+   - Essa função consiste em um efeito dos Leds apenas e um pequeno atraso.
+     - Utiliza-se uma condicional "if" e um "switch".
 
 7. Função "modoJogo":
    - É dividida em duas partes: Inicialização e Jogo propriamente dito.
-     - Utiliza-se um switch:
-       <!-- Explicar -->  
+     - Utiliza-se um "switch" e um pequeno atraso.
 
 8. Função "inicioJogo":
    - Função de efeitos de início do jogo e carregamento da memória.
-     - É realizado um Serial.println para imprimir "Iniciando Jogo...", chamada a função "somInicio" e posteriormente feito um efeito com os Leds através de um laço de repetição (for);
-     - Utiliza-se um for para fazer a sequência de notas (Dó, Ré, Mi, Fa, Sol, La), acendendo seus respectivos Leds e após isso é randomizado as notas e apagados os Leds para aumentar o grau de dificuldade do jogo;
+     - É realizado um Serial.println para imprimir "Iniciando Jogo...", chamada a função "somInicio" e posteriormente feito um efeito com os Leds através de um laço de repetição "for";
+     - Utiliza-se um for para fazer a sequência de notas(Dó, Ré, Mi, Fa, Sol, La), acendendo seus respectivos Leds e após isso é randomizado as notas e apagados os Leds para aumentar o grau de dificuldade do jogo;
      - Zera variáveis.  
 
 9. Função "turnoArduino":
    - Acender os Leds conforme memória e fase atual.
-     <!-- Explicar -->
+     - Utiliza-se um Serial.print e um Serial.println para imprimir onde(fase) o jogador está, há um laço de repetição "for" contendo um "switch", ao final existe pequenos atrasos e a função "apagaLeds" é chamada. 
 
 10. Função "turnoJogador":
-    <!-- Explicar -->
+    - Para cada fase alcançada, o jogador tem que repetir sequêcia do Arduíno.
+    - Utiliza-se um Serial.print e um Serial.println para imprimir onde(fase) o jogador está, há a variável "terminoTurno", existe um laço de repetição "for" para checar se o botão pressionado está correto atráves de uma condicional "if" e "else", tem também um pequeno atraso, a incrementação de mais uma fase e mais uma condicional "if" para saber se o jogador chegou na fase que contém o mesmo valor limite do tamanho da mémoria, pois caso sejam iguais o jogador ganhou o jogo e ele é finalizado com a função "somGanhou".
 
 11. Função "leituraBotoes":
     - Ler botões no modo demonstação, com lógica para sair do modo se pressionou botão.
+      - Possui condicionais "if", a função "digitalRead" e pequenos atrasos.
      
 12. Função "leituraBotoesJogo":
     - Leitura dos botões durante jogo, inclui debounce para evitar leituras espúrias.
+      - Possui variáveis, um laço de repetição "while", condicionais "if", a função "digitalRead" e pequenos atrasos.
   
 13. Função "perdeJogo":
     - Efeitos de Perdeu o Jogo (som e efeitos com os Leds).
-
+      - É chamada a função "somPerdeu" e iniciado um laço de repetição "for" que contém vários "digitalWrite" e pequenos atrasos.
+  
 14. Função "ganhouJogo":
     - Efeitos de Ganhou o Jogo (som e efeitos com os Leds).
+      - É chamada a função "somGanhou" e iniciado um laço de repetição "for" que contém vários "digitalWrite" e pequenos atrasos.  
 
 15. Função "acendeLeds":
     - Acender os Leds, conforme status passado pelas variáveis.
+      - Utiliza-se a condicional "if" e o "digitalWrite". 
 
 17. Função "apagaLeds":
      - Serve para apagar todos os Leds.
+      - Utiliza-se "digitalWrite".  
 
 18. Funções de Sons - Notas Musicais:
-     <!-- Explicar -->
+     - Funções "somBR", "somAM", "somLA", "somAZ", "somVD", "somVM" relacionadas as cores dos Leds (Branco, Amarelo, Azul etc) e as suas respectivas notas musicais(Dó, Ré, Mi etc).
+       - Utiliza-se a função "tone" para cada tom musical.  
 
 19. Funções de Sons - Melodias:
      - Músicas para tornar o jogo mais divertido.
        - Função "somInicio";
        - Função "somPerdeu";
-       - Função "somGanhou".  
+       - Função "somGanhou".
+     - Utiliza-se o laço de repetição "for", variáveis para manipular a duração, as funções "tone" e "noTone".
 
 ## 🎮 Como Jogar
 <!-- Fluxograma aqui -->
