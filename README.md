@@ -53,6 +53,7 @@
 ## 📝 Como Fazer
 <!-- Colocar slide da apresentação, o códido estará disponível e um pequeno manual de instruções -->
 ### 🖥️ Explicação Circuito - Hardware
+<!-- Explicação com imagem do circuito virtual e do prático -->
 
 ### 👩‍💻 Explicação Código - Software
 <p>Aqui está um resumo explicativo do código.</p>
@@ -61,7 +62,7 @@
    - Começamos definindo valores constantes para as notas musicais dos sons e das melodias.
 
 2. Definição de Variáveis:
-   - EXPLICAR .
+   <!-- Explicar -->
 
 3. Função de Configuração (setup):
    - Inicializa a comunicação serial a 9600 bps;
@@ -81,7 +82,7 @@
 7. Função "modoJogo":
    - É dividida em duas partes: Inicialização e Jogo propriamente dito.
      - Utiliza-se um switch:
-       - EXPLICAR .   
+       <!-- Explicar -->  
 
 8. Função "inicioJogo":
    - Função de efeitos de início do jogo e carregamento da memória.
@@ -91,10 +92,10 @@
 
 9. Função "turnoArduino":
    - Acender os Leds conforme memória e fase atual.
-     - EXPLICAR .
+     <!-- Explicar -->
 
 10. Função "turnoJogador":
-    - EXPLICAR .
+    <!-- Explicar -->
 
 11. Função "leituraBotoes":
     - Ler botões no modo demonstação, com lógica para sair do modo se pressionou botão.
@@ -115,7 +116,7 @@
      - Serve para apagar todos os Leds.
 
 18. Funções de Sons - Notas Musicais:
-     - EXPLICAR .
+     <!-- Explicar -->
 
 19. Funções de Sons - Melodias:
      - Músicas para tornar o jogo mais divertido.
@@ -124,8 +125,10 @@
        - Função "somGanhou".  
 
 ## 🎮 Como Jogar
+<!-- Fluxograma aqui -->
 
 ## 🗂️ Documentação do Projeto
+<!-- Artigo e slide aqui -->
 
 ## 🧾 Referências
 
