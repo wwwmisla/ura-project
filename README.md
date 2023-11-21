@@ -55,6 +55,73 @@
 ### 🖥️ Explicação Circuito - Hardware
 
 ### 👩‍💻 Explicação Código - Software
+<p>Aqui está um resumo explicativo do código.</p>
+
+1. Definição de Pinos:
+   - Começamos definindo valores constantes para as notas musicais dos sons e das melodias.
+
+2. Definição de Variáveis:
+   - EXPLICAR .
+
+3. Função de Configuração (setup):
+   - Inicializa a comunicação serial a 9600 bps;
+   - Define os pinos dos 6 Leds e do Buzzer como saída;
+   - Define os pinos dos Botões como entrada;
+   - Registro de tempo e inicializa randomização;
+   - Inicializando o random através de uma leitura da porta analógica.
+   
+5. Função "loop":
+   - Há dois laços de repetição (while).
+     - O while do Modo Demonstração: chama as funções "modoDemo" e "leituraBotoes" quando a variável "statusJogo" é diferente de 1 e utiliza a função Serial.print para imprimir um "." na porta serial;
+     - O while do Modo Jogo: chama a função "modoJogo" quando  a variável "statusJogo" é igual a 1.
+
+6. Função "modoDemo":
+   - Essa função consiste em um efeito dos Leds apenas.
+
+7. Função "modoJogo":
+   - É dividida em duas partes: Inicialização e Jogo propriamente dito.
+     - Utiliza-se um switch:
+       - EXPLICAR .   
+
+8. Função "inicioJogo":
+   - Função de efeitos de início do jogo e carregamento da memória.
+     - É realizado um Serial.println para imprimir "Iniciando Jogo...", chamada a função "somInicio" e posteriormente feito um efeito com os Leds através de um laço de repetição (for);
+     - Utiliza-se um for para fazer a sequência de notas (Dó, Ré, Mi, Fa, Sol, La), acendendo seus respectivos Leds e após isso é randomizado as notas e apagados os Leds para aumentar o grau de dificuldade do jogo;
+     - Zera variáveis.  
+
+9. Função "turnoArduino":
+   - Acender os Leds conforme memória e fase atual.
+     - EXPLICAR .
+
+10. Função "turnoJogador":
+    - EXPLICAR .
+
+11. Função "leituraBotoes":
+    - Ler botões no modo demonstação, com lógica para sair do modo se pressionou botão.
+     
+12. Função "leituraBotoesJogo":
+    - Leitura dos botões durante jogo, inclui debounce para evitar leituras espúrias.
+  
+13. Função "perdeJogo":
+    - Efeitos de Perdeu o Jogo (som e efeitos com os Leds).
+
+14. Função "ganhouJogo":
+    - Efeitos de Ganhou o Jogo (som e efeitos com os Leds).
+
+15. Função "acendeLeds":
+    - Acender os Leds, conforme status passado pelas variáveis.
+
+17. Função "apagaLeds":
+     - Serve para apagar todos os Leds.
+
+18. Funções de Sons - Notas Musicais:
+     - EXPLICAR .
+
+19. Funções de Sons - Melodias:
+     - Músicas para tornar o jogo mais divertido.
+       - Função "somInicio";
+       - Função "somPerdeu";
+       - Função "somGanhou".  
 
 ## 🎮 Como Jogar
 
