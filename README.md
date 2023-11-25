@@ -164,6 +164,11 @@
 
 ## 🎮 Como Jogar
 <!-- Fluxograma aqui -->
+<div align="center">
+
+<img src="https://github.com/wwwmisla/ura-project/blob/main/img/fluxograma_jogo.png" width="700px"/>
+ 
+</div>
 
 ## 🗂️ Documentação do Projeto
 <!-- Artigo e slide aqui -->
