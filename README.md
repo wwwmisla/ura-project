@@ -22,8 +22,12 @@
 
 ## 📄 Descrição do Projeto
 
-<p>  
+<p align="justify">  
   Este é o repositório do projeto final do <b>Curso de Robótica para Graduandos - 2023.2</b> do <i>URA</i> (https://www.umroboporaluno.org/), o qual tem como objetivo o desenvolvimento de um projeto que envolva a <i>Robótica Educacional</i> e que esteja seguindo a <i>BNCC - Base Nacional Comum Curricular</i>.
+</p>
+
+<p align="justify">
+ Neste projeto vamos apresentar um "Jogo da Memória" intitulado de "Batma²m", inspirado no "Genius" jogo de grande sucesso na década de 80. O jogo apresenta 6 botões e 6 Leds que acenderão em uma sequência de notas musicais (Dó, Ré, Mi, Fa, Sol, La), com sons definidos para cada um dos Leds, que posteriormente se tornará uma sequência aleatória para aumentar o grau de dificuldade do jogo. Sendo assim, o jogador/criança deverá clicar nos botões de acordo com a sequência gerada pelo Arduíno, além disso, a cada jogada, a sequência é acrescida de um novo item. Vence o jogo quem conseguir repetir a maior sequência possível. Aliás, jogo é limitado a 12 jogadas (6 da sequência de notas e 6 da sequência de notas acrescida da aleatoriedade), mas você poderá aumentar se desejar conforme o grau de dificuldade do jogador/criança.
 </p>
 
 <!-- Descrever o teclado musical como OA para crianças -->
