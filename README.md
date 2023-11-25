@@ -86,6 +86,8 @@
 
 #### 🎹 Circuito Virtual & 🎼 Circuito Prático
 
+<p>Breve Explicação sobre a Arquitetura do Circuito:</p>
+
 1. Entradas Digitais - Arduíno:
    - Componentes de Entrada:
      - 6 Botões.
