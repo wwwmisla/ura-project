@@ -55,6 +55,16 @@
 ### 🖥️ Explicação Circuito - Hardware
 <!-- Explicação com imagem do circuito virtual e do prático -->
 
+<div align="center">
+ 
+<img src="https://github.com/wwwmisla/ura-project/blob/main/img/Batma%C2%B2m%20-%20URA.png" align="center">
+ 
+</div>
+
+#### 🎹 Circuito Virtual
+
+#### 🎼 Circuito Prático
+
 ### 👩‍💻 Explicação Código - Software
 <p>Aqui está um resumo explicativo do código.</p>
 
