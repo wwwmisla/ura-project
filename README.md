@@ -135,7 +135,7 @@
       - R5 - Cátodo do Led Verde;
       - R6 - Cátodo do Led Vermelho.
     - Buzzer:
-      - R7 - Positivo do Buzzer.
+      - R7 - Positivo do Buzzer;
       - Jumper com negativo vindo da área de alimentação da protoboard.
     - Botões:
        - Todos os 6 botões recebem jumpers (com cores respectivas as notas) que saem da área de alimentação da protoboard (-).
