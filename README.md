@@ -3,6 +3,10 @@
 <div style="display: inline_block">
 
 #### Projeto: Batma²m do URA - Um Robô por Aluno
+#### Desenvolvido por: 
+- Artur;
+- Anne; 
+- Misla Wislaine.
 
 <img src="https://github.com/wwwmisla/ura-project/blob/main/img/ura_logo.png" width="400px" align="right" />
 
@@ -61,13 +65,66 @@
 
 <div align="center">
  
-<img src="https://github.com/wwwmisla/ura-project/blob/main/img/Batma%C2%B2m%20-%20URA.png" align="center">
- 
+<img src="https://github.com/wwwmisla/ura-project/blob/main/img/Batma%C2%B2m%20-%20URA.png" width="400px" align="left">
+
+<img src="https://github.com/wwwmisla/ura-project/blob/main/img/Batma%C2%B2m%20-%20URA.png"  width="400px" align="rigth">
+
 </div>
 
-#### 🎹 Circuito Virtual
+#### 🎹 Circuito Virtual & 🎼 Circuito Prático
 
-#### 🎼 Circuito Prático
+1. Entradas Digitais - Arduíno:
+   - Componentes de Entrada:
+     - 6 Botões.
+     
+   - Componentes de Saída:
+     - 6 Leds e 1 Buzzer.
+        
+2. Portas Digitais Utilizadas - Arduíno:
+   - 0 (RX);
+     - Jumper Branco -> Botão Dó.
+   - 1 (TX);
+     - Jumper Amarelo -> Botão Ré.
+   - 2;
+     - Jumper Laranja -> Botão Mi.
+   - 3;
+     - Jumper Azul -> Botão Fa.
+   - 4;
+     - Jumper Verde -> Botão Sol.
+   - 5;
+     - Jumper Vermelho -> Botão La.
+   - 6;
+     - Jumper Marrom -> Buzzer.
+   - 7;
+     - Jumper Branco -> Ânodo do Led Branco. 
+   - 8;
+     - Jumper Amarelo -> Ânodo do Led Amarelo. 
+   - 9;
+     - Jumper Laranja -> Ânodo do Led Laranja. 
+   - 10;
+     - Jumper Azul -> Ânodo do Led Azul. 
+   - 11;
+     - Jumper Verde -> Ânodo do Led Verde. 
+   - 12;
+     - Jumper Vermelho -> Ânodo do Led Vermelho. 
+   - GND.
+     - Área de Alimentação da Protoboard (-).
+       - Furo 12.
+         
+ 3. Protoboard:
+    - Resistores - Conectados a área de alimentação da protoboard (-):
+      - R1 - Cátodo do Led Branco;
+      - R2 - Cátodo do Led Amarelo;
+      - R3 - Cátodo do Led Laranja;
+      - R4 - Cátodo do Led Azul;
+      - R5 - Cátodo do Led Verde;
+      - R6 - Cátodo do Led Vermelho.
+    - Buzzer:
+      - R7 - Positivo do Buzzer.
+      - Jumper com negativo vindo da área de alimentação da protoboard.
+    - Botões:
+       - Todos os 6 botões recebem jumpers (com cores respectivas as notas) que saem da área de alimentação da protoboard (-).
+    - A trilha superior de alimentação (-) passa um jumper (preto) para a trilha inferior de alimentação (-).   
 
 ### 👩‍💻 Explicação Código - Software
 <p>Aqui está um resumo explicativo do código.</p>
