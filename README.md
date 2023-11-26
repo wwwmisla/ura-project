@@ -29,6 +29,8 @@
 
 ## 📄 Descrição do Projeto
 
+<img src="https://github.com/wwwmisla/ura-project/blob/main/img/batmam_logo.png" width="400px" align="left">
+
 <p align="justify">  
   Este é o repositório do projeto final do <b>Curso de Robótica para Graduandos - 2023.2</b> do <i>URA</i> (https://www.umroboporaluno.org/), o qual tem como objetivo o desenvolvimento de um projeto que envolva a <i>Robótica Educacional</i> e que esteja seguindo a <i>BNCC - Base Nacional Comum Curricular</i>.
 </p>
@@ -38,6 +40,7 @@
 </p>
 
 <!-- Descrever o teclado musical como OA para crianças -->
+
 
 ## 🧰 Componentes Utilizados
 
