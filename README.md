@@ -4,7 +4,7 @@
 
 #### Projeto: Batma²m do URA - Um Robô por Aluno
 #### Desenvolvido por: 
-- Artur;
+- Artur Silva;
 - Anne; 
 - Misla Wislaine.
 
