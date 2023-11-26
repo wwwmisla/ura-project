@@ -5,8 +5,8 @@
 #### Projeto: Batma²m do URA - Um Robô por Aluno
 #### Desenvolvido por: 
 - Artur Silva;
-- Anne; 
-- Misla Wislaine.
+- Misla Wislaine;
+- Wesleanne Sena.
 
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
