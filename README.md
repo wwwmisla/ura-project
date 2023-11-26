@@ -15,8 +15,8 @@
 
 ## Índice
  
- - [Título e Imagem de capa](#batmam---ura)
- - [Descrição do projeto](#-descrição-do-projeto)
+ - [Título e Imagem de Capa](#batmam---ura)
+ - [Descrição do Projeto](#-descrição-do-projeto)
  - [Componentes Utilizados](#-componentes-utilizados)
  - [Tecnologias Utilizadas](#%EF%B8%8F-tecnologias-utilizadas)
  - [Como Fazer](#-como-fazer)
@@ -244,6 +244,9 @@
 
 ## 🗂️ Documentação do Projeto
 <!-- Artigo e slide aqui -->
+#### 📰 Artigo: 
+
+#### 📊 Slide para Apresentação:
 
 ## 🧾 Referências
 
