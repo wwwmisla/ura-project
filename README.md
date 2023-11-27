@@ -46,8 +46,8 @@
    
    - Socialmente: A capacidade de <b>reconhecer e reproduzir</b> notas musicais pode promover a inclusão, proporcionando às crianças uma forma adicional de expressão e comunicação; 
    - Cognitivamente: O OA estimula o desenvolvimento do <b>raciocínio lógico matemático</b>, uma das competências previstas na BNCC, ao exigir a identificação precisa de frequências sonoras, por exemplo; 
-   - Estímulo à sensibilidade musical: Pois, desde cedo favorece o <b>desenvolvimento emocional e cultural<b> das crianças, contribuindo para uma formação integral, conforme preconizado pela BNCC.
-   <p align="justify">Logo, o Ouvido Absoluto não apenas potencializa o aprendizado musical, mas também se alinha aos princípios educacionais contemporâneos, promovendo habilidades multidimensionais essenciais para o pleno desenvolvimento das crianças quando aplicado à Robótica Educacional (RE), o OA pode ser integrado a projetos interdisciplinares, fomentando a criatividade e a resolução de problemas, tornando-se um catalisador para o avanço Científico, Tecnológico e Cognitivo.</p> 
+   - Estímulo à sensibilidade musical: Pois, desde cedo favorece o <b>desenvolvimento emocional e cultural</b> das crianças, contribuindo para uma formação integral, conforme preconizado pela BNCC.
+   <p align="justify">Logo, o Ouvido Absoluto não apenas potencializa o aprendizado musical, mas também se alinha aos princípios educacionais contemporâneos, promovendo habilidades multidimensionais essenciais para o pleno desenvolvimento das crianças quando aplicado à Robótica Educacional (RE), pode ser integrado a projetos interdisciplinares, fomentando a criatividade e a resolução de problemas, tornando-se um catalisador para o avanço Científico, Tecnológico e Cognitivo.</p> 
 
 ## 🧰 Componentes Utilizados
 
