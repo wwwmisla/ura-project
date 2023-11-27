@@ -24,6 +24,8 @@
    - [Código](#-explica%C3%A7%C3%A3o-c%C3%B3digo---software)
  - [Como Jogar](#-como-jogar)
  - [Documentação do Projeto](#%EF%B8%8F-documenta%C3%A7%C3%A3o-do-projeto)
+   - [Artigo](#-artigo)
+   - [Slide](#-slide-para-apresenta%C3%A7%C3%A3o)
  - [Referências](#-referências)
 </div>
 
@@ -36,11 +38,16 @@
 </p>
 
 <p align="justify">
- Neste projeto vamos apresentar um <b>"Jogo da Memória"</b> intitulado de <b>"Batma²m"</b>, inspirado no <b>"Genius"</b> — jogo de grande sucesso na década de 80. Ele é composto por 6 botões e 6 Leds que acenderão em uma sequência de notas musicais (Dó, Ré, Mi, Fa, Sol, La), com sons definidos para cada um dos Leds, que posteriormente se tornará uma sequência aleatória para aumentar o grau de dificuldade do jogo. Desse modo, o jogador deverá clicar nos botões conforme a sequência gerada pelo Arduíno, além disso, a cada jogada, a sequência é acrescida de um novo item. Vence o jogo quem conseguir repetir a maior sequência possível. Aliás, o jogo é limitado a 12 jogadas (6 da sequência de notas e 6 da sequência de notas acrescida da aleatoriedade), mas você poderá aumentar se desejar à medida que o grau de dificuldade do jogador aumentar ou diminuir.
+ Neste projeto vamos apresentar um <b>"Jogo da Memória"</b> intitulado de <b>"Desenvolvimento e Implementação de um Dispositivo Audioperceptivo Absoluto Destinado a Crianças: Batma²m"</b> ou simplesmente <b>"Batma²m"</b>, que é inspirado no <b>"Genius"</b> — jogo de grande sucesso na década de 80. O Batma²m é composto por 6 botões e 6 Leds que acenderão em uma sequência de notas musicais (Dó, Ré, Mi, Fa, Sol, La), com sons definidos para cada um dos Leds, que posteriormente se tornará uma sequência de notas musicais aleatórias para aumentar o grau de dificuldade do jogo. Desse modo, o jogador deverá clicar nos botões conforme a sequência gerada pelo Arduíno e vencerá o jogo se conseguir repetir a maior sequência possível de notas musicais. Aliás, o jogo é limitado a 12 jogadas (6 da sequência de notas e 6 da sequência de notas acrescida da aleatoriedade), mas você poderá aumentar se desejar à medida que o grau de dificuldade do jogador aumentar ou diminuir.
 </p>
 
-<!-- Descrever o teclado musical como OA para crianças -->
-
+<p align="justify"><b>❓ Por Que Escolhemos Fazer Um Teclado Musical Como Testador De Ouvido Absoluto (OA) Para Crianças?</b>
+<br> O OA desempenha um papel significativo no desenvolvimento infantil, sobretudo quando relacionado aos aspectos tecnológicos, sociais e cognitivos. Sendo assim, quando pensamos em um contexto tecnológico, o Ouvido Absoluto pode ser potencializado por softwares e dispositivos inovadores que oferecem experiências musicais imersivas, interativas e personalizadas, contribuindo para a ampliação das habilidades auditivas das crianças. Veja abaixo alguns aspectos importantes:</p>
+   
+   - Socialmente: A capacidade de <b>reconhecer e reproduzir</b> notas musicais pode promover a inclusão, proporcionando às crianças uma forma adicional de expressão e comunicação; 
+   - Cognitivamente: O OA estimula o desenvolvimento do <b>raciocínio lógico matemático</b>, uma das competências previstas na BNCC, ao exigir a identificação precisa de frequências sonoras, por exemplo; 
+   - Estímulo à sensibilidade musical: Pois, desde cedo favorece o <b>desenvolvimento emocional e cultural<b> das crianças, contribuindo para uma formação integral, conforme preconizado pela BNCC.
+   <p align="justify">Logo, o Ouvido Absoluto não apenas potencializa o aprendizado musical, mas também se alinha aos princípios educacionais contemporâneos, promovendo habilidades multidimensionais essenciais para o pleno desenvolvimento das crianças quando aplicado à Robótica Educacional (RE), o OA pode ser integrado a projetos interdisciplinares, fomentando a criatividade e a resolução de problemas, tornando-se um catalisador para o avanço Científico, Tecnológico e Cognitivo.</p> 
 
 ## 🧰 Componentes Utilizados
 
@@ -75,9 +82,8 @@
 </div>
 
 ## 📝 Como Fazer
-<!-- Colocar slide da apresentação, o códido estará disponível e um pequeno manual de instruções -->
+
 ### 🖥️ Explicação Circuito - Hardware
-<!-- Explicação com imagem do circuito virtual e do prático -->
 
 <div align="center">
  
@@ -238,7 +244,7 @@
      - Utiliza-se o laço de repetição "for", variáveis para manipular a duração, as funções "tone" e "noTone".
 
 ## 🎮 Como Jogar
-<!-- Fluxograma aqui -->
+
 <div align="center">
 
 <img src="https://github.com/wwwmisla/ura-project/blob/main/img/fluxograma_jogo.png" width="700px"/>
@@ -246,7 +252,7 @@
 </div>
 
 ## 🗂️ Documentação do Projeto
-<!-- Artigo e slide aqui -->
+
 #### 📰 Artigo: 
 
 #### 📊 Slide para Apresentação:
