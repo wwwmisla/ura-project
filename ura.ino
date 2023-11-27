@@ -3,10 +3,10 @@
 *                 URA - Turma Graduandos 2023.2 
 *                 
 *  Nome do Projeto: Batma²m
-*  Criado por: Artur, Anne e Misla
+*  Criado por: Artur Silva, Wesleanne Sena e Misla Wislaine.
 *  Jogo é composto inicialente por 6 botões com 6 LEDs coloridos. 
 *  Jogador/Criança deve fazer a mesma sequência de sons proposta pelo Jogo.
-*  O Jogo tem o intuito de melhorar o Ouvido Absoluto (OA) do Jogador.
+*  O Jogo tem o intuito de melhorar o Ouvido Absoluto (OA) do Jogador/Criança.
 *
 *  Componentes:
 *     - Arduíno Uno R3;
@@ -17,11 +17,10 @@
 *     - 1 Protoboard;
 *	  - 16 Jumpers (Macho/Macho).
 *     
-*   Versão 1.0 - Versão inicial com Jogo de 20 posições, além de conter alguns efeitos pré e pós jogo - XX/XX/2023
+*   Versão 1.0 - Versão inicial com Jogo de 12 posições, além de conter alguns efeitos pré e pós jogo - 27/11/2023
 *   
 *   Disponível em:
-*	Faltando: Aumentar o tempo para pressionar o botão, apagar Leds quando estiver na sequência
-*	aleatória e ver se é possível ganhar no jogo.
+*	https://github.com/wwwmisla/ura-project
 *   
 *******************************************************************************/
 
@@ -34,7 +33,7 @@
 #define NOTE_LA 440
 #define NOTE_SI 493
 
-// Música iniciar, perder e ganhar
+// Notas para as músicas iniciar, perder e ganhar
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35
@@ -178,8 +177,8 @@ int pino_BotaoSol   = 4;          // Botão Sol
 int pino_BotaoLa    = 5;          // Botão Lá
 
 // Constantes
-const int tamMemoria = 20;        // Número máximo de combinações ou fases de jogo
-const int tempoCor   = 1000;      // Tempo de cada cor, 1000 millisegundos
+const int tamMemoria = 12;        // Número máximo de combinações ou fases de jogo
+const int tempoCor   = 1000;      // Tempo de cada cor - 1000 millisegundos
 
 // Variáveis de programa 
 int statusBotaoVM    = 0;         // Status dos botões
@@ -192,16 +191,16 @@ int statusBotaoLA    = 0;
 int currentTime      = 0;         // Temporizadores
 int lastTime         = 0;
 
-int demoLed          = 0;         // Indicador de modo demonstração pré-jogo
+int demoLed          = 0;         // Indicador de modo demonstração/pré-jogo
 
 int statusJogo       = 0;         // 0 = modo demonstração ; 1 = modo Jogo
-int memJogo[tamMemoria];          // Array com sequência de cores para jogar responder
+int memJogo[tamMemoria];          // Array com sequência de cores para o jogador responder
 int etapaJogo;                    // 0 = introdução; 1 = jogo; 2 = perdeu; 3 = ganhou
 int faseJogo         = 1;         // Evolução do jogador, vai até o valor de tamMemoria
 int respJogador      = 0;         // Guarda resposta do jogador
 int botaoPress       = 0;         // Variável para guardar botão pressionado pelo jogador
 int perdeuJogo       = 0;         // Indicador para perdeu o jogo
-int tempoJogador     = 30000;     // Tempo da vez do jogador, para cada cor
+int tempoJogador     = 15000;     // Tempo da vez do jogador, para cada cor - 15 millisegundos
 
 // SETUP
 void setup()
@@ -319,7 +318,7 @@ void modoDemo() {
   delay (100);
 }
 
-// Função Modo Jogo, dividida em duas partes, inicialização e Jogo propriamente dito
+// Função Modo Jogo, dividida em duas partes: Inicialização e Jogo propriamente dito
 void modoJogo() {
   switch (etapaJogo) {
     case 0:
@@ -387,7 +386,6 @@ void inicioJogo() {
 
   // Sorteia memoria
   for (int i = 0; i < tamMemoria ; i++) {
-  //Se o valor for igual a 1, então emita a nota dó e acenda seu respectivo Led
     if (i == 0) {
       memJogo[i] = 1; // Emite Nota Dó e acende o Led respectivo a Nota
     } 
@@ -407,7 +405,7 @@ void inicioJogo() {
       memJogo[i] = 6; // Emite Nota La e acende o Led respectivo a Nota
     }
     else {
-      memJogo[i] = random(1, 7); // Randomiza Notas e cores dos Leds: 1 = Bran; 2 = Amar; 3 = Lar; 4 = Azul; 5 = Ver; 6 = Verd
+      memJogo[i] = random(1, 7); // Randomiza Notas e cores dos Leds: 1 = Bran; 2 = Amar; 3 = Lar; 4 = Azul; 5 = Ver; 6 = Verd	
     }
   }
 
@@ -461,7 +459,7 @@ void turnoJogador() {
   Serial.println(faseJogo);
   int terminoTurno = 0;
 
-  // Para cada fase alcançada, jogador tem que repetir sequencia do Arduino
+  // Para cada fase alcançada, jogador tem que repetir sequência do Arduino
   for (int i = 0 ; i < faseJogo ; i++) {
     botaoPress = leituraBotoesJogo(i);    // Checa botão pressionado pelo jogador
     if (botaoPress == 1) {    // Pressionou corretamente
@@ -479,9 +477,9 @@ void turnoJogador() {
   }
   delay(500);
   faseJogo++;             // Incrementa fase
-  if (faseJogo == tamMemoria) { //memJogo
-    ganhouJogo();     // ganhou jogo e faz efeito do ganhador
-    Serial.println("Ganhou o jogo, parabéns!");
+  if (faseJogo == memJogo[tamMemoria]) {  //memJogo 
+    ganhouJogo();     // Ganhou jogo e faz efeito do ganhador
+    Serial.println("Ganhou o jogo, parabens!");
   }
 }
 
@@ -530,9 +528,9 @@ int leituraBotoesJogo(int fase) {
     }
     delay(100);
     tempoTurno = millis();
-    if ((tempoTurno - inicioTurno) > tempoJogador) return 0;  // Tempo de 5 segundos excedido
+    if ((tempoTurno - inicioTurno) > tempoJogador) return 0;  // Tempo excedido
   }
-  // confere se botão pressionado foi o correto e retorna com resultado
+  // Confere se botão pressionado foi o correto e retorna com resultado
   if (botao == memJogo[fase]) {
     return 1;     // Acertou
   } else {
