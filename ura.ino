@@ -477,9 +477,11 @@ void turnoJogador() {
   }
   delay(500);
   faseJogo++;             // Incrementa fase
-  if (faseJogo == memJogo[tamMemoria]) {  //memJogo 
+  if (faseJogo == 2) {   
     ganhouJogo();     // Ganhou jogo e faz efeito do ganhador
     Serial.println("Ganhou o jogo, parabens!");
+    faseJogo = 1;
+    modoDemo();
   }
 }
 
