@@ -4,23 +4,23 @@
 *                 
 *  Nome do Projeto: Batma²m
 *  Criado por: Artur Silva, Wesleanne Sena e Misla Wislaine.
-*  Jogo é composto inicialente por 6 botões com 6 LEDs coloridos. 
+*  Jogo é composto inicialente por 4 botões com 4 LEDs coloridos. 
 *  Jogador/Criança deve fazer a mesma sequência de sons proposta pelo Jogo.
 *  O Jogo tem o intuito de melhorar o Ouvido Absoluto (OA) do Jogador/Criança.
 *
 *  Componentes:
 *     - Arduíno Uno R3;
-*     - 6 Chaves Momentâneas (Push Button);
-*     - 6 LEDs de Cores Diferentes;
-*     - 7 Resistores de 220 Ohms (ou valor adequado para o LED selecionado);
-*	  - 1 Buzzer;
+*     - 4 Chaves Momentâneas (Push Button);
+*     - 4 LEDs de Cores Diferentes;
+*     - 5 Resistores de 220 Ohms (ou valor adequado para o LED selecionado);
+*     - 1 Buzzer;
 *     - 1 Protoboard;
-*	  - 16 Jumpers (Macho/Macho).
+*     - 12 Jumpers (Macho/Macho).
 *     
-*   Versão 1.0 - Versão inicial com Jogo de 12 posições, além de conter alguns efeitos pré e pós jogo - 27/11/2023
+*   Versão 1.0 - Versão inicial com Jogo de 16 posições, além de conter alguns efeitos pré e pós jogo - 29/11/2023
 *   
 *   Disponível em:
-*	https://github.com/wwwmisla/ura-project
+* https://github.com/wwwmisla/ura-project
 *   
 *******************************************************************************/
 
@@ -160,33 +160,27 @@ int durations4[]  = {4, 4, 4, 5, 16, 4, 5, 16, 2, 4, 4, 4, 5, 16, 4, 5, 16, 2};
 int tuneSize = sizeof(melody4) / sizeof(int);
 
 // Definição de Pinos
-int pino_Buzzer     = 6;          // Pino Buzzer
+int pino_Buzzer     = 10;         // Pino Buzzer
 
-int pino_LedBR      = 7;          // Led Branco
-int pino_LedAM      = 8;          // Led Amarelo
-int pino_LedLA      = 9;          // Led Laranja
-int pino_LedAZ      = 10;         // Led Azul
-int pino_LedVD      = 11;         // Led Verde
-int pino_LedVM      = 12;         // Led Vermelho
+int pino_LedVM      = 6;          // Led Vermelho
+int pino_LedAM      = 7;          // Led Amarelo
+int pino_LedBR      = 8;          // Led Branco
+int pino_LedVD      = 9;          // Led Verde
 
-int pino_BotaoDo    = 0;          // Botão Dó
-int pino_BotaoRe    = 1;          // Botão Ré
-int pino_BotaoMi    = 2;          // Botão Mi
-int pino_BotaoFa    = 3;          // Botão Fá
-int pino_BotaoSol   = 4;          // Botão Sol
-int pino_BotaoLa    = 5;          // Botão Lá
+int pino_BotaoDo    = 2;          // Botão Dó
+int pino_BotaoRe    = 3;          // Botão Ré
+int pino_BotaoMi    = 4;          // Botão Mi
+int pino_BotaoFa    = 5;          // Botão Fá
 
 // Constantes
-const int tamMemoria = 12;        // Número máximo de combinações ou fases de jogo
-const int tempoCor   = 1000;      // Tempo de cada cor - 1000 millisegundos
+const int tamMemoria = 16;         // Número máximo de combinações ou fases de jogo
+const int tempoCor   = 1000;       // Tempo de cada cor - 1000 millisegundos
 
 // Variáveis de programa 
 int statusBotaoVM    = 0;         // Status dos botões
 int statusBotaoAM    = 0;
-int statusBotaoVD    = 0;
-int statusBotaoAZ    = 0;
 int statusBotaoBR    = 0;
-int statusBotaoLA    = 0;
+int statusBotaoVD    = 0;
 
 int currentTime      = 0;         // Temporizadores
 int lastTime         = 0;
@@ -211,19 +205,15 @@ void setup()
   //Configuração dos Pinos
   pinMode(pino_Buzzer, OUTPUT);           // Pino do Buzzer
   
-  pinMode(pino_LedBR, OUTPUT);            // Led Branco
-  pinMode(pino_LedAM, OUTPUT);            // Led Amarelo
-  pinMode(pino_LedLA, OUTPUT);            // Led Laranja
-  pinMode(pino_LedAZ, OUTPUT);            // Led Azul
-  pinMode(pino_LedVD, OUTPUT);            // Led Verde
   pinMode(pino_LedVM, OUTPUT);            // Led Vermelho
-
+  pinMode(pino_LedAM, OUTPUT);            // Led Amarelo
+  pinMode(pino_LedBR, OUTPUT);            // Led Branco
+  pinMode(pino_LedVD, OUTPUT);            // Led Verde
+  
   pinMode(pino_BotaoDo, INPUT_PULLUP);    // Botão da nota Dó
   pinMode(pino_BotaoRe, INPUT_PULLUP);    // Botão da nota Ré
   pinMode(pino_BotaoMi, INPUT_PULLUP);    // Botão da nota Mi
   pinMode(pino_BotaoFa, INPUT_PULLUP);    // Botão da nota Fa
-  pinMode(pino_BotaoSol, INPUT_PULLUP);   // Botão da nota Sol
-  pinMode(pino_BotaoLa, INPUT_PULLUP);    // Botão da nota La
 
   // Registro de tempo e inicializa randomização
   lastTime = millis();
@@ -253,7 +243,7 @@ void modoDemo() {
   currentTime = millis();
   if ((currentTime - lastTime) > 100) {
     demoLed++;
-    if (demoLed > 13) {
+    if (demoLed > 9) {
       demoLed = 1;
     }
     lastTime = currentTime;
@@ -261,54 +251,38 @@ void modoDemo() {
   switch (demoLed) {
     case 1:
       apagaLeds();
-      digitalWrite(pino_LedBR, HIGH);
-      somBR();
+      digitalWrite(pino_LedVM, HIGH);
+      somVM();
       break;
     case 2:
       digitalWrite(pino_LedAM, HIGH);
       somAM();
       break;
     case 3:
-      digitalWrite(pino_LedLA, HIGH);
-      somLA();
+      digitalWrite(pino_LedBR, HIGH);
+      somBR();
       break;
     case 4:
-      digitalWrite(pino_LedAZ, HIGH);
-      somAZ();
-      break;
-    case 5:
       digitalWrite(pino_LedVD, HIGH);
       somVD();
       break;
-    case 6:
-      digitalWrite(pino_LedVM, HIGH);
+    case 5:
+      digitalWrite(pino_LedVM, LOW);
       somVM();
+      break;
+    case 6:
+      digitalWrite(pino_LedAM, LOW);
+      somAM();
       break;
     case 7:
       digitalWrite(pino_LedBR, LOW);
       somBR();
       break;
     case 8:
-      digitalWrite(pino_LedAM, LOW);
-      somAM();
-      break;
-    case 9:
-      digitalWrite(pino_LedLA, LOW);
-      somLA();
-      break;
-    case 10:
-      digitalWrite(pino_LedAZ, LOW);
-      somAZ();
-      break;
-    case 11:
       digitalWrite(pino_LedVD, LOW);
       somVD();
       break;
-    case 12:
-      digitalWrite(pino_LedVM, LOW);
-      somVM();
-      break;    
-    case 13:
+    case 9:
       apagaLeds();
       break;
     default:
@@ -339,49 +313,37 @@ void inicioJogo() {
   Serial.println("\nIniciando Jogo...");
   somInicio();
   for (int i = 0; i < 10; i++) {
-    digitalWrite(pino_LedBR, LOW);
+    digitalWrite(pino_LedVM, LOW);
     delay(40);
 
     digitalWrite(pino_LedAM, HIGH);
     delay(40);
 
-    digitalWrite(pino_LedLA, LOW);
-    delay(40);
-
-    digitalWrite(pino_LedAZ, HIGH);
-    delay(40);
-
-    digitalWrite(pino_LedVD, LOW);
-    delay(40);
-
-    digitalWrite(pino_LedVM, HIGH);
-    delay(40);
-
-    digitalWrite(pino_LedBR, HIGH);
-    delay(40);
-
-    digitalWrite(pino_LedAM, LOW);
-    delay(40);
-    
-    digitalWrite(pino_LedLA, HIGH);
-    delay(40);
-
-    digitalWrite(pino_LedAZ, LOW);
+    digitalWrite(pino_LedBR, LOW);
     delay(40);
 
     digitalWrite(pino_LedVD, HIGH);
     delay(40);
 
-    digitalWrite(pino_LedVM, LOW);
+    digitalWrite(pino_LedVM, HIGH);
     delay(40);
+
+    digitalWrite(pino_LedAM, LOW);
+    delay(40);
+
+    digitalWrite(pino_LedBR, HIGH);
+    delay(40);
+
+    digitalWrite(pino_LedVD, LOW);
+    delay(40);
+    
   }
   
-  digitalWrite(pino_LedBR, HIGH);
-  digitalWrite(pino_LedAM, HIGH);
-  digitalWrite(pino_LedLA, HIGH);
-  digitalWrite(pino_LedAZ, HIGH);
-  digitalWrite(pino_LedVD, HIGH);
   digitalWrite(pino_LedVM, HIGH);
+  digitalWrite(pino_LedAM, HIGH);
+  digitalWrite(pino_LedBR, HIGH);
+  digitalWrite(pino_LedVD, HIGH);
+  
   delay(1000);
 
   // Sorteia memoria
@@ -398,14 +360,8 @@ void inicioJogo() {
     else if(i == 3){
       memJogo[i] = 4; // Emite Nota Fa e acende o Led respectivo a Nota
     } 
-    else if(i == 4){
-      memJogo[i] = 5; // Emite Nota Sol e acende o Led respectivo a Nota
-    }
-    else if(i == 5){
-      memJogo[i] = 6; // Emite Nota La e acende o Led respectivo a Nota
-    }
     else {
-      memJogo[i] = random(1, 7); // Randomiza Notas e cores dos Leds: 1 = Bran; 2 = Amar; 3 = Lar; 4 = Azul; 5 = Ver; 6 = Verd	
+      memJogo[i] = random(1, 5); // Randomiza Notas e cores dos Leds: 1 = Verm; 2 = Amar; 3 = Bran; 4 = Verd 
     }
   }
 
@@ -425,25 +381,19 @@ void turnoArduino() {
   for (int i = 0; i < faseJogo ; i++) {
     switch (memJogo[i]) {
       case 1:
-        acendeLeds(1, 0, 0, 0, 0, 0);
+      	acendeLeds(1, 0, 0, 0);
         break;
       case 2:
-        acendeLeds(0, 1, 0, 0, 0, 0);
+        acendeLeds(0, 1, 0, 0);
         break;
       case 3:
-        acendeLeds(0, 0, 1, 0, 0, 0);
+        acendeLeds(0, 0, 1, 0);
         break;
       case 4:
-        acendeLeds(0, 0, 0, 1, 0, 0);
-        break;
-      case 5:
-        acendeLeds(0, 0, 0, 0, 1, 0);
-        break;
-      case 6:
-        acendeLeds(0, 0, 0, 0, 0, 1);
+        acendeLeds(0, 0, 0, 1);
         break;
       default:
-        acendeLeds(0, 0, 0, 0, 0, 0);
+        acendeLeds(0, 0, 0, 0);
         break;
     }
     delay(tempoCor);
@@ -477,24 +427,26 @@ void turnoJogador() {
   }
   delay(500);
   faseJogo++;             // Incrementa fase
-  if (faseJogo == 2) {   
+  if (faseJogo == 17) {   // 16 fases/combinações
     ganhouJogo();     // Ganhou jogo e faz efeito do ganhador
     Serial.println("Ganhou o jogo, parabens!");
+    apagaLeds();
+    statusJogo = 0;
+    etapaJogo = 0;
+    respJogador = 0;
+    perdeuJogo = 0;
     faseJogo = 1;
-    modoDemo();
   }
 }
 
 // Função para ler botões no modo demonstação, com lógica para sair do modo se pressionou botão
 void leituraBotoes() {
-  statusBotaoBR = !digitalRead(pino_BotaoDo);
+  statusBotaoVM = !digitalRead(pino_BotaoDo);
   statusBotaoAM = !digitalRead(pino_BotaoRe);
-  statusBotaoLA = !digitalRead(pino_BotaoMi);
-  statusBotaoAZ = !digitalRead(pino_BotaoFa);
-  statusBotaoVD = !digitalRead(pino_BotaoSol);
-  statusBotaoVM = !digitalRead(pino_BotaoLa);
+  statusBotaoBR = !digitalRead(pino_BotaoMi);
+  statusBotaoVD = !digitalRead(pino_BotaoFa);
   if (statusJogo == 0) {
-    if (statusBotaoBR || statusBotaoAM || statusBotaoLA || statusBotaoAZ || statusBotaoVD || statusBotaoVM) { // algum botão foi pressionado
+    if (statusBotaoVM || statusBotaoAM || statusBotaoBR || statusBotaoVD) { // algum botão foi pressionado
       apagaLeds();
       demoLed = 1;
       statusJogo = 1;
@@ -510,22 +462,18 @@ int leituraBotoesJogo(int fase) {
   int debounce = 0;
   int tempoTurno = 0;
   int inicioTurno = millis();
-  while (botao == 0 || debounce == 0) {   // fica dentro do while enquanto não pressionar botão e debounce acabar
-    statusBotaoBR = !digitalRead(pino_BotaoDo);
-  	statusBotaoAM = !digitalRead(pino_BotaoRe);
-  	statusBotaoLA = !digitalRead(pino_BotaoMi);
-  	statusBotaoAZ = !digitalRead(pino_BotaoFa);
-  	statusBotaoVD = !digitalRead(pino_BotaoSol);
-  	statusBotaoVM = !digitalRead(pino_BotaoLa);
-    if (statusBotaoBR) botao = 1;
+  while (botao == 0 || debounce == 0) {   // fica dentro do while enquanto não pressionar botão e debounce acabar  
+  statusBotaoVM = !digitalRead(pino_BotaoDo);
+  statusBotaoAM = !digitalRead(pino_BotaoRe);
+  statusBotaoBR = !digitalRead(pino_BotaoMi);
+  statusBotaoVD = !digitalRead(pino_BotaoFa);
+    if (statusBotaoVM) botao = 1;
     if (statusBotaoAM) botao = 2;
-    if (statusBotaoLA) botao = 3;
-    if (statusBotaoAZ) botao = 4;
-    if (statusBotaoVD) botao = 5;
-    if (statusBotaoVM) botao = 6;
-    acendeLeds(statusBotaoBR, statusBotaoAM, statusBotaoLA, statusBotaoAZ, statusBotaoVD, statusBotaoVM);
+    if (statusBotaoBR) botao = 3;
+    if (statusBotaoVD) botao = 4;
+    acendeLeds(statusBotaoVM, statusBotaoAM, statusBotaoBR, statusBotaoVD);
     // Faz debounce, só sai do while se botão foi depressionado
-    if (statusBotaoBR == 0 && statusBotaoAM  == 0 && statusBotaoLA  == 0 && statusBotaoAZ  == 0 && statusBotaoVD  == 0 && statusBotaoVM  == 0 && botao > 0 ) {
+    if (statusBotaoVM == 0 && statusBotaoAM  == 0 && statusBotaoBR  == 0 && statusBotaoVD  == 0 && botao > 0 ) {
       debounce = 1;
     }
     delay(100);
@@ -545,19 +493,15 @@ int leituraBotoesJogo(int fase) {
 void perdeJogo() {
   somPerdeu();
   for (int i = 0; i < 15; i++) {
-    digitalWrite(pino_LedBR, LOW);
-    digitalWrite(pino_LedAM, LOW);
-    digitalWrite(pino_LedLA, LOW);
-    digitalWrite(pino_LedAZ, LOW);
-    digitalWrite(pino_LedVD, LOW);
     digitalWrite(pino_LedVM, LOW);
+    digitalWrite(pino_LedAM, LOW);
+    digitalWrite(pino_LedBR, LOW);
+    digitalWrite(pino_LedVD, LOW);
     delay(100);
-    digitalWrite(pino_LedBR, HIGH);
-    digitalWrite(pino_LedAM, HIGH);
-    digitalWrite(pino_LedLA, HIGH);
-    digitalWrite(pino_LedAZ, HIGH);
-    digitalWrite(pino_LedVD, HIGH);
     digitalWrite(pino_LedVM, HIGH);
+    digitalWrite(pino_LedAM, HIGH);
+    digitalWrite(pino_LedBR, HIGH);
+    digitalWrite(pino_LedVD, HIGH);
     delay(100);
   }
 }
@@ -566,57 +510,43 @@ void perdeJogo() {
 void ganhouJogo() {
   somGanhou();
   for (int i = 0; i < 20; i++) {
-    digitalWrite(pino_LedBR, LOW);
+    digitalWrite(pino_LedVM, LOW);
     delay(40);
     digitalWrite(pino_LedAM, HIGH);
     delay(40);
-    digitalWrite(pino_LedLA, LOW);
-    delay(40);
-    digitalWrite(pino_LedAZ, HIGH);
-    delay(40);
-    digitalWrite(pino_LedVD, LOW);
-    delay(40);
-    digitalWrite(pino_LedVM, HIGH);
-    delay(40);
-    digitalWrite(pino_LedBR, HIGH);
-    delay(40);
-    digitalWrite(pino_LedAM, LOW);
-    delay(40);
-    digitalWrite(pino_LedLA, HIGH);
-    delay(40);
-    digitalWrite(pino_LedAZ, LOW);
+    digitalWrite(pino_LedBR, LOW);
     delay(40);
     digitalWrite(pino_LedVD, HIGH);
     delay(40);
-    digitalWrite(pino_LedVM, LOW);
+    digitalWrite(pino_LedVM, HIGH);
+    delay(40);
+    digitalWrite(pino_LedAM, LOW);
+    delay(40);
+    digitalWrite(pino_LedBR, HIGH);
+    delay(40);
+    digitalWrite(pino_LedVD, LOW);
     delay(40);
   }
 }
 
 // Função para acender os Leds, conforme status passado pelas variáveis
-void acendeLeds(int ledBR, int ledAM, int ledLA, int ledAZ, int ledVD, int ledVM) {
-  digitalWrite(pino_LedBR, ledBR);
-  digitalWrite(pino_LedAM, ledAM);
-  digitalWrite(pino_LedLA, ledLA);
-  digitalWrite(pino_LedAZ, ledAZ);
-  digitalWrite(pino_LedVD, ledVD);
+void acendeLeds(int ledVM, int ledAM, int ledBR, int ledVD) {
   digitalWrite(pino_LedVM, ledVM);
-  if (ledBR) somBR();
-  if (ledAM) somAM();
-  if (ledLA) somLA();
-  if (ledAZ) somAZ();
-  if (ledVD) somVD();
+  digitalWrite(pino_LedAM, ledAM);
+  digitalWrite(pino_LedBR, ledBR);
+  digitalWrite(pino_LedVD, ledVD);
   if (ledVM) somVM();
+  if (ledAM) somAM();
+  if (ledBR) somBR();
+  if (ledVD) somVD();
 }
 
 // Função para apagar todos os Leds
 void apagaLeds() {
-  digitalWrite(pino_LedBR, LOW);
-  digitalWrite(pino_LedAM, LOW);
-  digitalWrite(pino_LedLA, LOW);
-  digitalWrite(pino_LedAZ, LOW);
-  digitalWrite(pino_LedVD, LOW);
   digitalWrite(pino_LedVM, LOW);
+  digitalWrite(pino_LedAM, LOW);
+  digitalWrite(pino_LedBR, LOW);
+  digitalWrite(pino_LedVD, LOW);
 }
 
 // Funções de Sons
@@ -628,20 +558,12 @@ void somAM() {
   tone(pino_Buzzer, NOTE_RE, 500);
 }
 
-void somLA() {
-  tone(pino_Buzzer, NOTE_MI, 500);
-}
-
-void somAZ() {
-  tone(pino_Buzzer, NOTE_FA, 500);
-}
-
 void somVD() {
   tone(pino_Buzzer, NOTE_SOL, 500);
 }
 
 void somVM() {
-  tone(pino_Buzzer, NOTE_LA, 100);
+  tone(pino_Buzzer, NOTE_LA, 500);
 }
 
 void somInicio() {
