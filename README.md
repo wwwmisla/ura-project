@@ -87,9 +87,7 @@
 
 <div align="center">
  
-<img src="https://github.com/wwwmisla/ura-project/blob/main/img/Batma%C2%B2m%20-%20URA.png" width="400px" align="left">
-
-<img src="https://github.com/wwwmisla/ura-project/blob/main/img/Batma%C2%B2m%20-%20URA.png"  width="400px" align="rigth">
+<img src="https://github.com/wwwmisla/ura-project/blob/main/img/Copy%20of%20Batma%C2%B2m%20-%20URA.png" width="600px" align="center">
 
 </div>
 
