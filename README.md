@@ -56,10 +56,10 @@
 | 1     | Arduíno Uno R3      | 
 | 4     | Chaves Momentâneas (Push Button)       |
 | 4     | Leds de Cores Diferentes               |
-| 5     | Resistores de 220 Ohms (ou valor adequado para o LED selecionado) |
+| 4     | Resistores de 220 Ohms (ou valor adequado para o LED selecionado) |
 | 1     | Buzzer |
 | 1     | Protoboard |
-| 12     | Jumpers (Macho/Macho) |
+| 15     | Jumpers (Macho/Macho) |
 
 ## 🛠️ Tecnologias Utilizadas
 
