@@ -236,6 +236,7 @@
 ## 🗂️ Documentação do Projeto
 
 #### 📰 Artigo: 
+[Link do Artigo](https://docs.google.com/document/d/1F8eBkx5-P_mnJlWbGgH7muyWRTLw981e/edit?usp=sharing&ouid=111494349103848718661&rtpof=true&sd=true)
 
 #### 📊 Slide para Apresentação:
 [Link do Slide - Canva](https://www.canva.com/design/DAF1S-VMUVA/8dtgzs6BolGUGXCBs3OI3Q/edit?utm_content=DAF1S-VMUVA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
