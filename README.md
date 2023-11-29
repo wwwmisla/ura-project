@@ -87,7 +87,13 @@
 
 <div align="center">
  
-<img src="https://github.com/wwwmisla/ura-project/blob/main/img/Copy%20of%20Batma%C2%B2m%20-%20URA.png" width="600px" align="center">
+<img src="https://github.com/wwwmisla/ura-project/blob/main/img/Copy%20of%20Batma%C2%B2m%20-%20URA.png" align="center">
+
+</div>
+
+<div align="center">
+<br>
+<img src="https://github.com/wwwmisla/ura-project/blob/main/img/WhatsApp%20Image%202023-11-29%20at%204.21.47%20PM.jpeg" width="400" align="center">
 
 </div>
 
