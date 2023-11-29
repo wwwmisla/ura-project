@@ -17,7 +17,7 @@
 *     - 1 Protoboard;
 *     - 15 Jumpers (Macho/Macho).
 *     
-*   Versão 1.0 - Versão inicial com Jogo de 16 posições, além de conter alguns efeitos pré e pós jogo - 29/11/2023
+*   Versão 1.0 - Versão inicial com Jogo de 10 posições, além de conter alguns efeitos pré e pós jogo - 29/11/2023
 *   
 *   Disponível em:
 * https://github.com/wwwmisla/ura-project
