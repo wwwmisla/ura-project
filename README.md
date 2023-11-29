@@ -232,6 +232,7 @@
 #### 📰 Artigo: 
 
 #### 📊 Slide para Apresentação:
+[Link do Slide - Canva](https://www.canva.com/design/DAF1S-VMUVA/8dtgzs6BolGUGXCBs3OI3Q/edit?utm_content=DAF1S-VMUVA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ## 🧾 Referências
 
