@@ -12,10 +12,10 @@
 *     - Arduíno Uno R3;
 *     - 4 Chaves Momentâneas (Push Button);
 *     - 4 LEDs de Cores Diferentes;
-*     - 5 Resistores de 220 Ohms (ou valor adequado para o LED selecionado);
+*     - 4 Resistores de 220 Ohms (ou valor adequado para o LED selecionado);
 *     - 1 Buzzer;
 *     - 1 Protoboard;
-*     - 12 Jumpers (Macho/Macho).
+*     - 15 Jumpers (Macho/Macho).
 *     
 *   Versão 1.0 - Versão inicial com Jogo de 16 posições, além de conter alguns efeitos pré e pós jogo - 29/11/2023
 *   
@@ -25,13 +25,13 @@
 *******************************************************************************/
 
 // Vamos começar definindo as Notas para os sons.
-#define NOTE_DO 241
+#define NOTE_DO 261
 #define NOTE_RE 294
 #define NOTE_MI 329
 #define NOTE_FA 349
 #define NOTE_SOL 392
 #define NOTE_LA 440
-#define NOTE_SI 493
+#define NOTE_SI 493,
 
 // Notas para as músicas iniciar, perder e ganhar
 #define NOTE_B0  31
@@ -173,7 +173,7 @@ int pino_BotaoMi    = 4;          // Botão Mi
 int pino_BotaoFa    = 5;          // Botão Fá
 
 // Constantes
-const int tamMemoria = 16;         // Número máximo de combinações ou fases de jogo
+const int tamMemoria = 10;         // Número máximo de combinações ou fases de jogo
 const int tempoCor   = 1000;       // Tempo de cada cor - 1000 millisegundos
 
 // Variáveis de programa 
@@ -194,7 +194,7 @@ int faseJogo         = 1;         // Evolução do jogador, vai até o valor de 
 int respJogador      = 0;         // Guarda resposta do jogador
 int botaoPress       = 0;         // Variável para guardar botão pressionado pelo jogador
 int perdeuJogo       = 0;         // Indicador para perdeu o jogo
-int tempoJogador     = 15000;     // Tempo da vez do jogador, para cada cor - 15 millisegundos
+int tempoJogador     = 5000;     // Tempo da vez do jogador, para cada cor - 15 millisegundos
 
 // SETUP
 void setup()
@@ -427,7 +427,7 @@ void turnoJogador() {
   }
   delay(500);
   faseJogo++;             // Incrementa fase
-  if (faseJogo == 17) {   // 16 fases/combinações
+  if (faseJogo == 11 && perdeuJogo == 0) {   // 9 fases/combinações
     ganhouJogo();     // Ganhou jogo e faz efeito do ganhador
     Serial.println("Ganhou o jogo, parabens!");
     apagaLeds();
