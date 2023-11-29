@@ -38,7 +38,7 @@
 </p>
 
 <p align="justify">
- Neste projeto vamos apresentar um <b>"Jogo da Memória"</b> intitulado de <b>"Desenvolvimento e Implementação de um Dispositivo Audioperceptivo Absoluto Destinado a Crianças: Batma²m"</b> ou simplesmente <b>"Batma²m"</b>, que é inspirado no <b>"Genius"</b> — jogo de grande sucesso na década de 80. O Batma²m é composto por 6 botões e 6 Leds que acenderão em uma sequência de notas musicais (Dó, Ré, Mi, Fa, Sol, La), com sons definidos para cada um dos Leds, que posteriormente se tornará uma sequência de notas musicais aleatórias para aumentar o grau de dificuldade do jogo. Desse modo, o jogador deverá clicar nos botões conforme a sequência gerada pelo Arduíno e vencerá o jogo se conseguir repetir a maior sequência possível de notas musicais. Aliás, o jogo é limitado a 12 jogadas (6 da sequência de notas e 6 da sequência de notas acrescida da aleatoriedade), mas você poderá aumentar se desejar à medida que o grau de dificuldade do jogador aumentar ou diminuir.
+ Neste projeto vamos apresentar um <b>"Jogo da Memória"</b> intitulado de <b>"Desenvolvimento e Implementação de um Dispositivo Audioperceptivo Absoluto Destinado a Crianças: Batma²m"</b> ou simplesmente <b>"Batma²m"</b>, que é inspirado no <b>"Genius"</b> — jogo de grande sucesso na década de 80. O Batma²m é composto por 4 botões e 4 Leds que acenderão em uma sequência de notas musicais (Dó, Ré, Mi, Fa), com sons definidos para cada um dos Leds, que posteriormente se tornará uma sequência de notas musicais aleatórias para aumentar o grau de dificuldade do jogo. Desse modo, o jogador deverá clicar nos botões conforme a sequência gerada pelo Arduíno e vencerá o jogo se conseguir repetir a maior sequência possível de notas musicais. Aliás, o jogo é limitado a 16 jogadas (4 da sequência de notas e 12 da sequência de notas acrescida da aleatoriedade), mas você poderá ajustar se desejar à medida que o grau de dificuldade do jogador aumentar ou diminuir.
 </p>
 
 <p align="justify"><b>❓ Por Que Escolhemos Fazer Um Teclado Musical Como Testador De Ouvido Absoluto (OA) Para Crianças?</b>
@@ -54,12 +54,12 @@
 | Quantidade | Componente | 
 | :---:       |     :---:       |  
 | 1     | Arduíno Uno R3      | 
-| 6     | Chaves Momentâneas (Push Button)       |
-| 6     | Leds de Cores Diferentes               |
-| 7     | Resistores de 220 Ohms (ou valor adequado para o LED selecionado) |
+| 4     | Chaves Momentâneas (Push Button)       |
+| 4     | Leds de Cores Diferentes               |
+| 5     | Resistores de 220 Ohms (ou valor adequado para o LED selecionado) |
 | 1     | Buzzer |
 | 1     | Protoboard |
-| 16     | Jumpers (Macho/Macho) |
+| 12     | Jumpers (Macho/Macho) |
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -99,56 +99,34 @@
 
 1. Entradas Digitais - Arduíno:
    - Componentes de Entrada:
-     - 6 Botões.
+     - 4 Botões.
      
    - Componentes de Saída:
-     - 6 Leds e 1 Buzzer.
+     - 4 Leds e 1 Buzzer.
         
 2. Portas Digitais Utilizadas - Arduíno:
-   - 0 (RX);
-     - Jumper Branco -> Botão Dó.
-   - 1 (TX);
-     - Jumper Amarelo -> Botão Ré.
-   - 2;
-     - Jumper Laranja -> Botão Mi.
-   - 3;
-     - Jumper Azul -> Botão Fa.
-   - 4;
-     - Jumper Verde -> Botão Sol.
-   - 5;
-     - Jumper Vermelho -> Botão La.
-   - 6;
-     - Jumper Marrom -> Buzzer.
-   - 7;
-     - Jumper Branco -> Ânodo do Led Branco. 
-   - 8;
-     - Jumper Amarelo -> Ânodo do Led Amarelo. 
-   - 9;
-     - Jumper Laranja -> Ânodo do Led Laranja. 
+   - 2, 3, 4 e 5;
+     - Jumpers Vermelho, Amarelo, Branco e Verde -> Botões Dó, Ré, Mi e Fa.
+   - 6, 7, 8 e 9;
+     - Jumpers Vermelho, Amarelo, Branco e Verde -> Ânodo dos Leds VM, AM, BR e VD.
    - 10;
-     - Jumper Azul -> Ânodo do Led Azul. 
-   - 11;
-     - Jumper Verde -> Ânodo do Led Verde. 
-   - 12;
-     - Jumper Vermelho -> Ânodo do Led Vermelho. 
-   - GND.
+     - Jumper Marrom -> Positivo do Pino Buzzer.
+   - GND;
      - Área de Alimentação da Protoboard (-).
-       - Furo 12.
-         
+       
  3. Protoboard:
     - Resistores - Conectados a área de alimentação da protoboard (-):
-      - R1 - Cátodo do Led Branco;
-      - R2 - Cátodo do Led Amarelo;
-      - R3 - Cátodo do Led Laranja;
-      - R4 - Cátodo do Led Azul;
-      - R5 - Cátodo do Led Verde;
-      - R6 - Cátodo do Led Vermelho.
+      - Resistores Conectados aos Cátodos dos Leds.
     - Buzzer:
-      - R7 - Positivo do Buzzer;
+      - Resistor no Positivo do Buzzer;
       - Jumper com negativo vindo da área de alimentação da protoboard.
     - Botões:
-       - Todos os 6 botões recebem jumpers (com cores respectivas as notas) que saem da área de alimentação da protoboard (-).
+       - Todos os 4 botões recebem jumpers (com cores respectivas as notas) que saem da área de alimentação da protoboard (-).
     - A trilha superior de alimentação (-) passa um jumper (preto) para a trilha inferior de alimentação (-).   
+
+<p>Inserimos os componentes na Protoboard como mostra a imagem com o circuito virtual. Sempre tendo atenção e cuidado com os cabos de ligação antes de iniciar o Arduíno e lembrando que ele tem que estar inteiramente desligado enquanto realizamos a montagem do nosso circuito!</p>
+    - Ter atenção de que os Leds possuem polaridade;
+    - Ter atenção de que o Buzzer possui polaridade.
 
 ### 👩‍💻 Explicação Código - Software
 <p>Aqui está um resumo explicativo do código.</p>
@@ -176,7 +154,7 @@
 
 3. Função de Configuração (setup):
    - Inicializa a comunicação serial a 9600 bps;
-   - Define os pinos dos 6 Leds e do Buzzer como saída;
+   - Define os pinos dos 4 Leds e do Buzzer como saída;
    - Define os pinos dos Botões como entrada;
    - Registro de tempo e inicializa randomização;
    - Inicializando o random através de uma leitura da porta analógica.
@@ -197,7 +175,7 @@
 8. Função "inicioJogo":
    - Função de efeitos de início do jogo e carregamento da memória.
      - É realizado um Serial.println para imprimir "Iniciando Jogo...", chamada a função "somInicio" e posteriormente feito um efeito com os Leds através de um laço de repetição "for";
-     - Utiliza-se um for para fazer a sequência de notas(Dó, Ré, Mi, Fa, Sol, La), acendendo seus respectivos Leds e após isso é randomizado as notas e apagados os Leds para aumentar o grau de dificuldade do jogo;
+     - Utiliza-se um for para fazer a sequência de notas(Dó, Ré, Mi, Fa), acendendo seus respectivos Leds e após isso é randomizado as notas e apagados os Leds para aumentar o grau de dificuldade do jogo;
      - Zera variáveis.  
 
 9. Função "turnoArduino":
@@ -233,7 +211,7 @@
       - Utiliza-se "digitalWrite".  
 
 18. Funções de Sons - Notas Musicais:
-     - Funções "somBR", "somAM", "somLA", "somAZ", "somVD", "somVM" relacionadas as cores dos Leds (Branco, Amarelo, Azul etc) e as suas respectivas notas musicais(Dó, Ré, Mi etc).
+     - Funções "somBR", "somAM", "somVD", "somVM" relacionadas as cores dos Leds (Branco, Amarelo etc) e as suas respectivas notas musicais(Dó, Ré, Mi etc).
        - Utiliza-se a função "tone" para cada tom musical.  
 
 19. Funções de Sons - Melodias:
